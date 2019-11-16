@@ -1,0 +1,21 @@
+<div class="container mb-4">
+  <div class="card-group mb-4" *ngFor="let a of blogs" class=" d-flex" style="margin-left: 250px;">
+    <div class="card bg-white col-sm-4 p-2" >
+
+
+      <div class="card-body text-center">
+        <img class="card-img-top  img-fluid styling" src="{{a.image}}">
+      </div>
+    </div>
+    <div class="card col-sm-4 p-2" style="background-color: white;">
+      <div class="card-body text-center">
+        <h3 class="card-text" style="color: black;font-family: 'Liu Jian Mao Cao', cursive;text-align: left;">{{a.name}}</h3>
+        <p class="card-text" style="color: black">{{a.content}}</p>
+        <button (click)="goToBlog(a.blogId)">Read More</button>
+      </div>
+    </div>
+
+
+  </div>
+  <hr>
+</div>

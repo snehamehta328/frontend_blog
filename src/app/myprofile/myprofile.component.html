@@ -1,0 +1,139 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="font-family: 'Open Sans', sans-serif;">
+  <h2 style="font-family: 'Liu Jian Mao Cao', cursive;"> The Happiest Cocktail</h2>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <div class="input-group mb-3 stylingg" style="width:300px;">
+    <input type="text" class="form-control" placeholder="What you're looking for?" style="width:1000px;" aria-label="Recipient's username" aria-describedby="basic-addon2">
+  </div>
+  <div class="input-group-append">
+    <button type="button" class="btn btn-secondary" style="margin-top:-10px;">Search</button>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/homepage">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<!--<button routerLink="/orderhistory">order history</button>-->
+<!--<div *ngIf="myp">-->
+<!--  <h4>Full name</h4>-->
+<!--&lt;!&ndash;<p>{{myp.username}}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;  <h4>phone number</h4>&ndash;&gt;-->
+<!--&lt;!&ndash;  <p>{{myp.phone}}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;  <h4>email</h4>&ndash;&gt;-->
+<!--&lt;!&ndash;  <p>{{myp.email}}</p>&ndash;&gt;-->
+<!--  <input type="text" value="{{myp.username}}" class="pl-2 p-1" [(ngModel)]="myp.username">-->
+<!--  <h4>Phone:</h4>-->
+<!--  <input type="text" value="{{myp.phone}}" class="pl-2 p-1" [(ngModel)]="myp.phone">-->
+<!--  <h4>Email:</h4>-->
+<!--  <input type="text" value="{{myp.email}}" class="pl-2 p-1" [(ngModel)]="myp.email">-->
+<!--  <br>-->
+<!--  <button (click)="edit()" >edit</button>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+<br><br><br><br>
+<div class="row mx-0">
+  <div class="col-sm-12 p-3">
+    <div class="card p-3" *ngIf="myp">
+      <div>
+        <div class="d-flex justify-content-center">
+          <img src="assets//personn.png" class="rouded-circle img-thumbnail"  width="100" height="150" alt="Profile Picture" style="border-radius:100px;margin-left: 1px;">
+        </div>
+        <h4><i class="material-icons">
+          person
+        </i>
+          <input type="text" value="{{myp.username}}"  [(ngModel)]="myp.username"> </h4>
+        <!-- <h4 class="text-center">Sneha Mehta</h4> -->
+
+        <hr>
+        <div class="d-flex align-items-center mb-1">
+          <i class="material-icons pr-3">phone</i>
+          <input type="text" value="{{myp.phone}}" class="pl-2 p-1" [(ngModel)]="myp.phone" >
+        </div>
+        <div class="d-flex align-items-center mb-1">
+          <i class="material-icons pr-3">email</i>
+          <input type="text" value="{{myp.email}}" class="pl-2 p-1" [(ngModel)]="myp.email" >
+        </div>
+
+
+      </div>
+      <hr>
+      <button  type="button" class="btn btn-primary btn-md" (click)="edit()"  >Edit</button>
+      <br>
+      <button  type="button" class="btn btn-primary btn-md" (click)="save()"  >Save</button>
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="p-2 display-4 text-center mb-3"></div>
+  <table class="table table-bordered">
+    <tr>
+      <th class="text-center">Follower</th>
+      <th class="text-center">Following</th>
+    </tr>
+    <tr>
+      <td>
+        <div *ngFor="let f1 of followers">
+          <div class="text-center">{{f1.user2.username}}</div>
+          <div class="text-center m-2">
+            <button class="mr-3 btn btn-primary">Follow</button>
+          </div>
+        </div>
+      </td>
+      <td >
+        <div *ngFor="let f of following" class="d-flex flex-wrap">
+          <div class="text-center">{{f.user1.username}}</div>
+          <div class="text-center m-2">
+            <button class="mr-3 btn btn-primary" (click)="unfollow(f.followerid)">Unfollow</button>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+  <div class="card-group mb-4" *ngFor="let a of blog" class=" d-flex" >
+    <div class="card bg-white col-sm-4 p-2" >
+
+
+      <div class="card-body text-center">
+        <img class="card-img-top  img-fluid styling" src="{{a.image}}">
+      </div>
+    </div>
+    <div class="card col-sm-4 p-2" style="background-color: white;">
+      <div class="card-body text-center">
+        <h3 class="card-text" style="color: black;font-family: 'Liu Jian Mao Cao', cursive;text-align: left;">{{a.name}}</h3>
+        <p class="card-text" style="color: black">{{a.content}}</p>
+        <button class="btn btn-mini btn-danger" type="button" (click)="deleteProduct(a.blogId)">Remove</button>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
