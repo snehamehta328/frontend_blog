@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {GetuserService} from '../getuser.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-edit-blog',
@@ -15,14 +15,22 @@ export class AddEditBlogComponent implements OnInit {
   pid;
   product1;
   uid;
-
-  constructor(private service: GetuserService, private router: Router) {
+  blog;
+  myp;
+  constructor(private service: GetuserService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.service.getBlogs().subscribe((data) => {
       this.product1 = data;
     });
+    // this.route.paramMap.subscribe((params: ParamMap) => {
+    //   this.pid = params.get('blogid');
+    // })
+    // this.service.getBlogsById(this.pid).subscribe((res) => {
+    //   this.blog = res;
+    //   console.log(this.blog);
+    // });
   }
 
   update(value: any) {
@@ -59,7 +67,7 @@ export class AddEditBlogComponent implements OnInit {
       name: this.name2,
       category: this.category,
       image: this.image,
-      price: this.content,
+      content: this.content,
       id: this.pid,
       user_id: this.uid,
       active: 1,
@@ -70,13 +78,13 @@ export class AddEditBlogComponent implements OnInit {
 
     });
   }
-
+  //
   editBlog() {
     this.service.editProduct(this.pid, {
       name: this.name2,
       category: this.category,
       image: this.image,
-      price: this.content,
+      content: this.content,
       id: this.pid,
       user_id: this.uid,
       active: 1,
@@ -89,4 +97,11 @@ export class AddEditBlogComponent implements OnInit {
       });
     });
   }
+  // editBlog() {
+  //   this.service.editProduct(this.pid, this.blog).subscribe(res => {
+  //     this.blog = res;
+  //     console.log(this.blog);
+  //     alert('Blog Updated');
+  //   });
+  // }
 }

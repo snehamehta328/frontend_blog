@@ -50,4 +50,10 @@ export class GetuserService {
     const headers = new HttpHeaders({Authorization: 'Basic ' + token});
     return this.httpClient.put('http://localhost:1020/api/blo/' + id, data, {headers});
   }
+  getBlogsById(id6) {
+    const token = sessionStorage.getItem('token');
+    console.log(token);
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + token});
+    return this.httpClient.get('http://localhost:1020/api/par/' + id6, {headers});
+  }
 }
